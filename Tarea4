@@ -1,0 +1,37 @@
+public class Tarea03 {
+
+    // Función que calcula el promedio de una semana
+    public static double calcularPromedio(double[] semana) {
+        double suma = 0;
+        for (int i = 0; i < semana.length; i++) {
+            suma += semana[i];
+        }
+        return suma / semana.length;
+    }
+
+    public static void main(String[] args) {
+        String[] ciudades = {"Quito", "Guayaquil"};
+
+        // Temperaturas: [ciudad][semana][día]
+        double[][][] temperaturas = {
+            {   // Quito
+                {20, 22, 21, 19, 23, 24, 25},   // Semana 1
+                {18, 21, 22, 20, 19, 23, 24}    // Semana 2
+            },
+            {   // Guayaquil
+                {28, 30, 29, 27, 31, 32, 33},   // Semana 1
+                {27, 29, 28, 30, 32, 33, 34}    // Semana 2
+            }
+        };
+
+        // Recorremos las ciudades y semanas
+        for (int i = 0; i < ciudades.length; i++) {
+            System.out.println("\nCiudad: " + ciudades[i]);
+            for (int j = 0; j < temperaturas[i].length; j++) {
+                double promedio = calcularPromedio(temperaturas[i][j]);
+                System.out.println("  Semana " + (j + 1) + 
+                                   ": Promedio de temperatura = " + promedio + " C");
+            }
+        }
+    }
+}
